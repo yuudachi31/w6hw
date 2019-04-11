@@ -1,9 +1,11 @@
-let $ = require('jquery');
-let setText = () => {
-    $('.text').html('HHHHHHHHh');
-};
+import $ from 'jquery';
+import 'bootstrap';
+import birds from '../images/bird.jpg';
+import mouses from '../images/squirrel.jpg';
 
-/*$(document).ready(function () {
+$('#bird').attr("src",birds);
+$('#mouse').attr("src",mouses);
+$(document).ready(function () {
 	// when a hanburger menu is clicked
 	let $ul = $(".nav__list"),
 		 $menu = $(".nav__menu");
@@ -12,5 +14,7 @@ let setText = () => {
 		// toggle menu-click Class
 		$ul.toggleClass("menu-click");
 	}); // end click event handler
-});
-*/
+
+	
+
+})
