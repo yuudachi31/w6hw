@@ -1,5 +1,5 @@
 let path = require('path');
-
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: './assets/js/script.js',
   output: {
@@ -20,6 +20,7 @@ module: {
             }
 
     },
+   
 {
 test: /\.(jpe?g|png|gif|svg)$/,
 use: [
@@ -33,8 +34,29 @@ use: [
     'image-webpack-loader'
 ]
 
-}
+},
+
+{
+    use: ExtractTextPlugin.extract({
+        use: 'css-loader'
+    }),
+    test: /\.css$/
+},
+{
+    test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+    use:{
+        loader:'file-loader',
+        options: {
+            outputPath: 'css/fonts',
+            name: '[name].[ext]',
+        },
+    }
+},
+
 
 ]
-}
+},
+plugins: [
+    new ExtractTextPlugin('./css/style.css')
+]
 };
